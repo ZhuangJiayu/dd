@@ -339,8 +339,8 @@ if [[ ! -n "$VER" ]]; then
 fi
 
 if [[ -z "$tmpDIST" ]]; then
-  [ "$Relese" == 'Debian' ] && tmpDIST='buster';
-  [ "$Relese" == 'Ubuntu' ] && tmpDIST='bionic';
+  [ "$Relese" == 'Debian' ] && tmpDIST='bookworm';
+  [ "$Relese" == 'Ubuntu' ] && tmpDIST='bnoble';
   [ "$Relese" == 'CentOS' ] && tmpDIST='6.10';
 fi
 
@@ -358,6 +358,7 @@ if [[ -n "$tmpDIST" ]]; then
         [[ "$isDigital" == '10' ]] && DIST='buster';
         [[ "$isDigital" == '11' ]] && DIST='bullseye';
         [[ "$isDigital" == '12' ]] && DIST='bookworm';
+        [[ "$isDigital" == '13' ]] && DIST='trixie';
       }
     }
     LinuxMirror=$(selectMirror "$Relese" "$DIST" "$VER" "$tmpMirror")

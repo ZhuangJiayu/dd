@@ -107,10 +107,10 @@ print_linux(){
     echo ""
     echo "请选择您需要的镜像包:"
     echo ""
-    echo "  1) Debian 12 [custom password]"
-    echo "  2) Debian 11 [custom password]"
-    echo "  3) Debian 10 [custom password]"
-    echo "  4) Debian 9 [custom password]"
+    echo "  1) Debian 13 [custom password]"
+    echo "  2) Debian 12 [custom password]"
+    echo "  3) Debian 11 [custom password]"
+    echo "  4) Debian 10 [custom password]"
     echo "  5) Ubuntu 20.04 [custom password]"
     echo "  6) Ubuntu 18.04 [custom password]"
     echo "  7) Ubuntu 16.04 [custom password]"
@@ -223,7 +223,7 @@ RUN(){
         UMIRROR=''
     fi
     case $N in
-        1|2|3|4|5|6|7|8|9|10|22)
+        1|2|3|4|5|6|7|8|9|10|11)
         read -p "Input root password[Default: haoduck.com]: " password
         read -p "Input ssh port[Default: 22]: " port
         echo -e "\nPassword: ${password:-haoduck.com}\nPort: ${port:-22}\n"
@@ -231,10 +231,10 @@ RUN(){
     esac
     read -p "回车确认开始执行(Press any key to continue)，CTRL+C退出"
     case $N in
-        1) bash /tmp/InstallNET.sh -d 12 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        2) bash /tmp/InstallNET.sh -d 11 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        3) bash /tmp/InstallNET.sh -d 10 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
-        4) bash /tmp/InstallNET.sh -d 9 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        1) bash /tmp/InstallNET.sh -d 13 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        2) bash /tmp/InstallNET.sh -d 12 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        3) bash /tmp/InstallNET.sh -d 11 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
+        4) bash /tmp/InstallNET.sh -d 10 -v 64 $NETCMD $DMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         5) bash /tmp/InstallNET.sh -u 20.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         6) bash /tmp/InstallNET.sh -u 18.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
         7) bash /tmp/InstallNET.sh -u 16.04 -v 64 $NETCMD $UMIRROR -p ${password:-haoduck.com} -port ${port:-22} ;;
