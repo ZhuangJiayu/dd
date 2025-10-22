@@ -340,7 +340,7 @@ fi
 
 if [[ -z "$tmpDIST" ]]; then
   [ "$Relese" == 'Debian' ] && tmpDIST='bookworm';
-  [ "$Relese" == 'Ubuntu' ] && tmpDIST='bnoble';
+  [ "$Relese" == 'Ubuntu' ] && tmpDIST='noble';
   [ "$Relese" == 'CentOS' ] && tmpDIST='6.10';
 fi
 
