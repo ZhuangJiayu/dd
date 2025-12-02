@@ -83,7 +83,7 @@ fi
 if [[ `command -v apt-get` ]];then apt-get update && apt-get install -y curl wget file xz-utils; fi
 if [[ `command -v yum` ]];then yum install -y curl wget file xz; fi
 
-curl -skSL -o /tmp/InstallNET.sh 'https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
+curl -skSL -o /tmp/InstallNET.sh 'https://fastly.jsdelivr.net/gh/ZhuangJiayu/dd@latest/InstallNET.sh' && chmod a+x /tmp/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/haoduck/dd@latest/InstallNET.sh
 #https://fastly.jsdelivr.net/gh/MoeClub/Note@latest/InstallNET.sh
 
