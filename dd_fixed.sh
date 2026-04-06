@@ -136,39 +136,6 @@ print_linux(){
     echo "  11) Rocky Linux 8.6 [custom password]"
 }
 
-print_win(){
-    echo ""
-    echo "  以下Windows部分来自veip007"
-    echo ""
-    echo "  12) 萌咖Win7x64 用户名:Administrator  密码：Vicer"
-    echo "  13) Win2019 By:MeowLove  密码：cxthhhhh.com"
-    echo "  14) Win2016 By:MeowLove  密码：cxthhhhh.com"
-    echo "  15) Win2012 R2 By:MeowLove  密码：cxthhhhh.com"
-    echo "  16) Win2008 R2 By:MeowLove  密码：cxthhhhh.com"
-    echo "  17) Windows 7 Vienna By:MeowLove  密码：cxthhhhh.com"
-    echo "  18) Windows 2003 Vienna By:MeowLove  密码：cxthhhhh.com"
-    echo "  19) Win7x32 By:老司机  用户名:Administrator  密码：Windows7x86-Chinese"
-    echo "  20) Win-2003x32 By:老司机  用户名:Administrator  密码：WinSrv2003x86-Chinese"
-    echo "  21) Win2008x64 By:老司机  用户名:Administrator  密码：WinSrv2008x64-Chinese"
-    echo "  22) Win2012R2x64 By:老司机  用户名:Administrator  密码：WinSrv2012r2"
-    echo "  23) CentOS 8 用户名：root 密码：cxthhhhh.com 推荐512M以上使用"
-    echo "  24) Win7x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  25) Win7x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  26) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  27) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  28) 2008r2x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  29) 2008r2x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  30) Win8.1x64 By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo "  31) Win8.1x64 Uefi启动的VPS专用(如:甲骨文)By:net.nn  用户名:Administrator  密码：nat.ee"
-    echo ""
-    echo "  以下Windows部分来自haoduck，国内鸡专用，国外鸡用特别慢(Suitable for Chinese servers!!!)"
-    echo ""
-    echo "  32) win10-ltsc-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  33) win7-ent-sp1-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  34) win8.1-ent-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  35) winsrv2008r2-data-sp1-x64-cn Username:Administrator  Password：nat.ee"
-    echo "  36) winsrv2012r2-data-x64-cn Username:Administrator  Password：nat.ee"
-}
 
 print_menu(){
     clear
@@ -177,9 +144,7 @@ print_menu(){
     echo "GATEWAY: $GATEWAYIP"
     echo "NETMASK: $NETMASK"
     print_linux
-    if [[ $1 == 'win' ]];then print_win; fi
     echo ""
-    echo "  99) 查看更多(Windows部分)"
     echo ""
     echo "  100) 自定义直链(custom url)"
     echo ""
@@ -194,7 +159,6 @@ print_menu
 
 RUN(){
     N=$1
-    if [[ $N == 99 ]];then print_linux; print_menu win; fi
     if [[ $N == 100 ]];then read -p "Input your url: " DDURL; fi
     read -p "使用国内源(Use CN mirror)[Y/n][Default: $DEFAULT_CN]: " input
     if [[ -z $input ]];then input=$DEFAULT_CN; fi
@@ -221,7 +185,6 @@ RUN(){
             5) mirror=http://mirrors.tuna.tsinghua.edu.cn ;;
             6) mirror=http://mirrors.ustc.edu.cn ;;
             7) mirror=http://mirrors.tencentyun.com ;;
-            99) if [[ ! $input =~ ^http:// ]] && [[ ! $input =~ ^https:// ]];then input=http://${input}; fi; if [[ $input =~ /$ ]];then input=${input:0:-1}; fi; mirror=$input ;;
         esac
         CMIRROR="--mirror ${mirror}/centos/"
         CVMIRROR="--mirror ${mirror}/centos-vault/"
@@ -253,31 +216,6 @@ RUN(){
         9) RHELImageBootConf; InstallNET_Main $NETCMD -dd 'https://api.moetools.net/get/centos-78-image' $DMIRROR ;;
         10) RHELImageBootConf; InstallNET_Main $NETCMD -dd 'https://api.moetools.net/get/centos-76-image' $DMIRROR ;;
         11) RHELImageBootConf; InstallNET_Main $NETCMD -dd 'https://api.moetools.net/get/rocky-8-image' $DMIRROR ;;
-        12) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1qhE4hHkCAgAiRby8WHngNduHHhqrUeMQ' $DMIRROR ;;
-        13) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1IXdK-ruDrNmorxZRoJaep1Fo9p4aPi0s' $DMIRROR ;;
-        14) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1JnbvgbvF4hzT1msk1RJ-rjrzqqzTwI1I' $DMIRROR ;;
-        15) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1vz2Y9kPlbRYdP8blD0oGs5MY7EfYVgFR' $DMIRROR ;;
-        16) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1dvNvV9OLm-x6p9sUbnRrKTLDuaiVj_Kg' $DMIRROR ;;
-        17) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1O3jXs9KagrCb1SbM-DVZMAZ7gw9r3Vtp' $DMIRROR ;;
-        18) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1PLG3EdCziMMTIWz1vnUupMPmje2pQX43' $DMIRROR ;;
-        19) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=16Xh4iq6guHWT92MAr-NCOzStZqMTdnmU' $DMIRROR ;;
-        20) InstallNET_Main $NETCMD -dd 'https://drive.google.com/open?id=1rzkH24tCtwPvcT3HquoF9tZgcj022voG' $DMIRROR ;;
-        21) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1wtUWaag5pVwmN-QUfTSJ6xbNWulLbLy-' $DMIRROR ;;
-        22) InstallNET_Main $NETCMD -dd 'https://www.lefu.men/gdzl/?id=1GUdLXMwBx4uM8-iBU6ClcD5HRmkURuEl' $DMIRROR ;;
-        23) RHELImageBootConf; InstallNET_Main $NETCMD -dd "https://odc.cxthhhhh.com/d/SyStem/CentOS/CentOS_8.X_x64_Legacy_NetInstallation_Stable_v6.8.vhd.gz" $DMIRROR ;;
-        24) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1fGsryTy6xZi5EC9GlOpvqTK-Uty0_gFo" $DMIRROR ;;
-        25) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1LxzyhswxkpI_BqUolnI0HyawNvPQJHAO" $DMIRROR ;;
-        26) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1SKUFoUujxh3sTtLIWWcBW8riibd1q5ka" $DMIRROR ;;
-        27) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1GUz7Suysv0S7qRuyB9vQ_IGkTbFckFcE" $DMIRROR ;;
-        28) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eA35gszGgUXI6P7dR5g5sqsIPnMJwUuN" $DMIRROR ;;
-        29) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1a8gEiZTEG5aeTrTflP9icAZF-HJhYU1N" $DMIRROR ;;
-        30) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1eboWyVSkt1Hcnsl2dqgA-8p40Qbk2QvG" $DMIRROR ;;
-        31) InstallNET_Main $NETCMD -dd "https://www.lefu.men/gdzl/?id=1IY8IyLt66uKhZ7Jb4QzEb_bTUUqU76_3" $DMIRROR ;;
-        32) InstallNET_Main $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win10-ltsc-x64-cn.vhd.gz ' $DMIRROR ;;
-        33) InstallNET_Main $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win7-ent-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
-        34) InstallNET_Main $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/win8.1-ent-x64-cn.vhd.gz ' $DMIRROR ;;
-        35) InstallNET_Main $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2008r2-data-sp1-x64-cn.vhd.gz ' $DMIRROR ;;
-        36) InstallNET_Main $NETCMD -dd 'https://haoduck.com/files/dd/laosiji/winsrv2012r2-data-x64-cn.vhd.gz ' $DMIRROR ;;
         100) InstallNET_Main $NETCMD -dd "$DDURL" $DMIRROR ;;
         *) echo "Wrong input!" ;;
     esac
@@ -980,7 +918,7 @@ InstallNET_Main() {
     d-i grub-installer/force-efi-extra-removable boolean true
     d-i finish-install/reboot_in_progress note
     d-i debian-installer/exit/reboot boolean true
-    d-i preseed/late_command string	\
+    d-i preseed/late_command string \
     sed -ri 's/^#?Port.*/Port ${sshPORT}/g' /target/etc/ssh/sshd_config; \
     sed -ri 's/^#?PermitRootLogin.*/PermitRootLogin yes/g' /target/etc/ssh/sshd_config; \
     sed -ri 's/^#?PasswordAuthentication.*/PasswordAuthentication yes/g' /target/etc/ssh/sshd_config; \

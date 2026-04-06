@@ -10,11 +10,11 @@
 
 ## 傻瓜式一键脚本
 ```
-curl -sSL -k -o dd.sh https://raw.githubusercontent.com/ZhuangJiayu/dd/master/dd.sh && chmod +x dd.sh && bash dd.sh
+curl -sSL -k -o dd.sh https://raw.githubusercontent.com/ZhuangJiayu/dd/master/dd_fixed.sh && chmod +x dd.sh && bash dd.sh
 ```
 
 ```
-curl -sSL -k -o dd.sh https://fastly.jsdelivr.net/gh/ZhuangJiayu/dd@latest/dd.sh && chmod +x dd.sh && bash dd.sh
+curl -sSL -k -o dd.sh https://fastly.jsdelivr.net/gh/ZhuangJiayu/dd@latest/dd_fixed.sh && chmod +x dd.sh && bash dd.sh
 ```
 
 ## Tip
@@ -22,4 +22,4 @@ curl -sSL -k -o dd.sh https://fastly.jsdelivr.net/gh/ZhuangJiayu/dd@latest/dd.sh
 谷歌云GCP使用时需要把掩码手动改为255.255.255.0
 
 
-部分代码copy自 https://github.com/veip007/dd 以及 https://github.com/hiCasper/Shell 。主要是添加了自定义ROOT密码和SSH端口，有现成的代码就偷懒了。
+部分代码copy自 https://github.com/veip007/dd 以及 https://github.com/hiCasper/Shell 。特别感谢 https://github.com/haoduck/dd 主要是添加了自定义ROOT密码和SSH端口，有现成的代码就偷懒了。
