@@ -10,12 +10,20 @@
 
 ## 傻瓜式一键脚本
 ```
-curl -sSL -k -o dd.sh https://raw.githubusercontent.com/ZhuangJiayu/dd/master/dd_fixed.sh && chmod +x dd.sh && bash dd.sh
+curl -sSL -k -o dd.sh https://raw.githubusercontent.com/ZhuangJiayu/dd/master/dd.sh && chmod +x dd.sh && bash dd.sh
 ```
 
 ```
-curl -sSL -k -o dd.sh https://fastly.jsdelivr.net/gh/ZhuangJiayu/dd@latest/dd_fixed.sh && chmod +x dd.sh && bash dd.sh
+curl -sSL -k -o dd.sh https://fastly.jsdelivr.net/gh/ZhuangJiayu/dd@latest/dd.sh && chmod +x dd.sh && bash dd.sh
 ```
+
+## 支持镜像
+
+- Debian 13 / 12 / 11 / 10（网络安装，自定义密码/端口）
+- Ubuntu 20.04 / 18.04 / 16.04（网络安装，自定义密码/端口）
+- CentOS 6（网络安装，自定义密码/端口）
+- CentOS 7.8 / 7.6、Rocky Linux 8.6（dd 模式，自定义密码/端口）
+- 选项 100 自定义直链：可 dd 任意镜像（包括 Windows，如 Windows 官方/第三方 vhd.gz 直链）
 
 ## Tip
 
