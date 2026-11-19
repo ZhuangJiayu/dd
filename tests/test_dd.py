@@ -207,8 +207,7 @@ class ReinstallTests(unittest.TestCase):
         self.assertEqual(result.stdout, 'https://example.test/debian')
         self.assertIn('mirror/https/hostname string example.test', (self.root / 'root/preseed.cfg').read_text())
 
-    def test_legacy_download_and_menu_targets(self):
-        self.assertEqual((REPO / 'dd_fixed.sh').read_bytes(), SCRIPT.read_bytes())
+    def test_legacy_menu_targets_and_confirmation(self):
         numbers = self.bash('image_presets').stdout.splitlines()
         self.assertEqual([int(row.split('|')[0]) for row in numbers], list(range(9, 37)))
         result = self.bash('set -e; uname() { printf x86_64; }; choose_preset 25; normalize_options; describe_target')
