@@ -47,3 +47,5 @@ package-lock.json
 yarn.lock
 # Local Environment Files
 *.local
+__pycache__/
+*.pyc
